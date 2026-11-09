@@ -42,7 +42,14 @@ The **AI Text** mode is already built in and available in the **Marketing & Crea
 
 **Cost:** API charges depend on input and output tokens; there is no fixed price per text. The default model is `claude-haiku-5-5`. See [current Claude Haiku 5.5 pricing](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
 
-**Privacy:** Selected text is sent to Anthropic for processing. The API key is stored locally in `%AppData%\\BarX\\settings.json`. Do not share the key on GitHub, in screenshots or in bug reports. Other BarX modes do not require an Anthropic key.
+**Privacy:** Selected text is sent to Anthropic for processing. The API key is stored locally in `%AppData%\BarX\settings.json`. Do not share the key on GitHub, in screenshots or in bug reports. Other BarX modes do not require an Anthropic key.
+
+## Known V3 issues – planned for V4
+
+- **API key stored in plaintext:** V3 stores the Anthropic API key without encryption in `%AppData%\BarX\settings.json`. Protected storage using Windows DPAPI is planned for V4. Until then, do not share the settings file or its backups.
+- **Outdated text in preview images:** Some promotional images still say that AI Text replaces selected text directly. That wording has been outdated since V2.1: the result is held ready until you choose Paste; Copy and Discard are also available. Updating the promotional text and affected images is planned for V4.
+
+**These fixes are planned and are not included in the published Beta V3.**
 
 ## Preview
 
