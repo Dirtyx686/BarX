@@ -1,11 +1,11 @@
-# BarX — Beta V3
-**Garage Lab AI · Touch Bar for Windows / Boot Camp · Version 0.9.3**
+# BarX — Beta V4
+**Garage Lab AI · Touch Bar for Windows / Boot Camp · Version 0.9.4**
 
-[Deutsch](README_DE.md) · **English** · [Download Beta V3](https://github.com/Dirtyx686/BarX/releases/tag/v0.9.3-beta)
+[Deutsch](README_DE.md) · **English** · [Download Beta V4](https://github.com/Dirtyx686/BarX/releases/tag/v0.9.4-beta)
 
 ![BarX overview — generated demonstration mockup](docs/images/cover-en.png)
 
-BarX turns the Touch Bar of an Intel MacBook Pro running Windows into a configurable display with touch input: **29 modes across six profiles** for study, business, office, creative work and fun. The interface supports German and English.
+BarX turns the Touch Bar of an Intel MacBook Pro running Windows into a configurable display with touch input: **29 modes across six profiles** for study, business, office, creative work and fun. The interface supports all 24 official EU languages; the guides and previews are available in German and English.
 
 ## Beta / disclaimer
 
@@ -21,35 +21,25 @@ On T2 MacBooks the bundled driver requires Windows test-signing mode and Secure 
 - Focus timer, flashcards, deadlines, day timeline and project time tracking.
 - Fireworks, virtual pet, ribbon synth, ambilight and music visualizer.
 - Weather, market ticker, soundboard and small games.
-- Optional Claude text actions with your own Anthropic API key. Selected text is sent to Anthropic; results wait for an explicit insert/copy action. API usage may incur charges. The key is stored in the local settings file.
+- Optional Claude text actions with your own Anthropic API key. Selected text is sent to Anthropic; results wait for an explicit insert/copy action. API usage may incur charges. The key is stored encrypted with Windows DPAPI.
 
 
 ## Set up AI Text (Claude)
 
-The **AI Text** mode is already built in and available in the **Marketing & Creative**, **Study**, **Business**, **Office** and **All** profiles. It requires your own Anthropic API key and an available API credit balance.
+The **AI Text** mode is available in the **Marketing & Creative**, **Study**, **Business**, **Office** and **All** profiles. It requires your own Anthropic API key; API usage may incur charges.
 
-1. Sign in to the [Claude Console](https://console.anthropic.com/) and create a key under **API Keys**. Check your available credits under billing and top up if needed. API billing is separate from a Claude chat subscription; some plans may include claimable API credits. See [Anthropic's billing guide](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage).
-2. Right-click the BarX tray icon → **Edit settings**. Edit these fields in the existing `settings.json`, keeping the other settings:
+1. Create an API key in the [Claude Console](https://console.anthropic.com/).
+2. Right-click the BarX tray icon → **Enter AI key (API key) …**, enter the key and choose **Save**. BarX encrypts it with Windows DPAPI for the current Windows account on this PC.
+3. Select text in an application, open **AI Text** and tap an action such as Shorten, Correct or Translate.
+4. Review the result and choose **Paste**, **Copy** or **Discard**. If you switched windows, check the destination before pasting.
 
-   ```json
-   "AnthropicKey": "sk-ant-YOUR-KEY",
-   "AiModel": "claude-haiku-5-5"
-   ```
+**Privacy:** Selected text is sent to Anthropic for processing. The key is stored encrypted as `dpapi:…` in `%AppData%\BarX\settings.json`. Existing plaintext keys are migrated at startup and removed from settings backups and older settings copies. Do not share settings or backups. After moving to another PC or Windows account, enter the key again. Without a key, the other 28 modes remain available. An AI action opens the key dialog; cancelling sends no request to Anthropic.
 
-   This is a fragment, not a complete settings file. Keep valid commas between the existing fields.
-3. Save the file, then right-click → **Reload settings**.
-4. Select text in an application, open **AI Text** and tap an action such as Shorten, Correct or Translate. The result waits for you to choose **Paste**, **Copy** or **Discard**. If you switched windows, check the destination before pasting.
+## New in Beta V4
 
-**Cost:** API charges depend on input and output tokens; there is no fixed price per text. The default model is `claude-haiku-5-5`. See [current Claude Haiku 5.5 pricing](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
-
-**Privacy:** Selected text is sent to Anthropic for processing. The API key is stored locally in `%AppData%\BarX\settings.json`. Do not share the key on GitHub, in screenshots or in bug reports. Other BarX modes do not require an Anthropic key.
-
-## Known V3 issues – planned for V4
-
-- **API key stored in plaintext:** V3 stores the Anthropic API key without encryption in `%AppData%\BarX\settings.json`. Protected storage using Windows DPAPI is planned for V4. Until then, do not share the settings file or its backups.
-- **Outdated text in preview images:** Some promotional images still say that AI Text replaces selected text directly. That wording has been outdated since V2.1: the result is held ready until you choose Paste; Copy and Discard are also available. Updating the promotional text and affected images is planned for V4.
-
-**These fixes are planned and are not included in the published Beta V3.**
+- All 24 official EU languages; the interface follows Windows and can be changed from the language menu. New translations have not yet been reviewed by native speakers; some uncommon text falls back to English.
+- Anthropic API keys are encrypted with Windows DPAPI. A dedicated input dialog replaces editing the key by hand; existing plaintext keys and settings backups are migrated.
+- Updated AI preview wording: review results before choosing Paste, Copy or Discard.
 
 ## Preview
 
@@ -58,16 +48,21 @@ These images are **generated demo mockups with sample data**, not photographs of
 ![Color picker](docs/images/color-picker-en.png)
 ![Touch Bar pet](docs/images/pet-en.png)
 ![Presentation controls](docs/images/presentation-en.png)
+![24 languages](docs/images/v4-languages-en.png)
+![Encrypted API key](docs/images/v4-api-key-en.png)
+![AI result actions](docs/images/ai-text-en.png)
 
 ## Tested hardware and current status
 
-The developer reports BarX running on **MacBookPro15,1**, with a live test already running for approximately **two hours** when this release was prepared. This is a developer-reported smoke test, not comprehensive validation of every feature.
+Earlier developer testing reported BarX running on **MacBookPro15,1**, with a live test already running for approximately **two hours** when Beta V3 was prepared. This is a developer-reported smoke test, not comprehensive validation of every feature.
+
+Beta V4 was rebuilt on Windows; embedded driver hashes, all 22 additional language packs (386 entries each), and a DPAPI encryption/decryption self-test passed. Hardware installation and sleep/wake behavior were not retested for this update.
 
 T1 (2016/2017) support and its WinUSB-first setup path remain **untested**. Do not interpret device detection as verified compatibility. The notification ticker is experimental.
 
 ## Install
 
-1. Download `BarX-Beta-V3-Setup.exe` from the release below.
+1. Download `BarX-Beta-V4-Setup.exe` from the release below.
 2. Start it and choose **Set everything up**; approve the administrator prompt when required.
 3. Follow the setup checklist and restart when prompted. For T2 devices, follow the guide for Secure Boot and test-signing requirements.
 4. Choose a profile. Right-click the tray icon for preview, settings, language and driver options.

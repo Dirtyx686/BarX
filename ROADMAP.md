@@ -1,32 +1,23 @@
 # BarX – Stand & Roadmap
 
-_Stand: 09.11.2026 · Version: **Beta V3** (0.9.3)_
+_Stand: 10.11.2026 · Version: **Beta V4** (0.9.4)_
 
-## Für Beta V4 geplant
-
-- **API-Schlüssel im Klartext:** In V3 liegt der Anthropic-API-Schlüssel unverschlüsselt in `%AppData%\BarX\settings.json`. Für V4 ist die geschützte Speicherung über Windows DPAPI vorgesehen. Bis dahin die Einstellungsdatei und ihre Sicherungskopien nicht weitergeben.
-- **Veralteter Text in den Vorstellungsbildern:** Der Fototext sagt teilweise noch „Ersetzt den markierten Text direkt“. Das ist seit V2.1 veraltet: Das Ergebnis wird zunächst bereitgehalten und erst nach „Einfügen“ übernommen; alternativ sind „Kopieren“ und „Verwerfen“ möglich. Die Korrektur des Fototextes und der betroffenen Bilder ist für V4 vorgesehen.
+## Stand Beta V4 (24 Sprachen + Sicherheit)
+- **Alle 24 EU-Amtssprachen:** Sprachpakete `lang/lang.xx.txt` (Deutsch → TAB → Übersetzung) als eingebettete Ressourcen; 386 App-Texte je Sprache, Rückfall Englisch, dann Deutsch. Sprache folgt Windows, sonst Englisch; Menü „Sprache / Language“ mit 24 Einträgen. Bilder und Anleitungen: DE + EN.
+- **API-Schlüssel mit DPAPI:** `CryptProtectData` (Benutzerkonto, eigene Entropie), Format `"dpapi:" + Base64`; Klartext wird beim Laden umgewandelt und aus `.bak`/Kopien entfernt; Eingabedialog im Menü; Selbsttest beim Foto-Lauf (`%AppData%\BarX\selbsttest.txt`).
+- **Fototext KI-Leiste korrigiert** („Ergebnis erst prüfen: Einfügen, Kopieren oder Verwerfen“), aktualisierte V4-Vorschauen unter `docs/images/`.
 
 ### Testberichte und Einrichtung (Community-Feedback)
 
 - [ ] **T1 und T2 getrennt auswerten:** Testberichte nach Hardwaregeneration führen und jeweils Mac-Modellkennung, Windows-Version/Build, BarX-Version und verwendeten Treiberweg erfassen. Erfolgreiche T2-Tests gelten nicht als Nachweis für T1.
 - [ ] **Wiederholbaren Standby-/Aufwachtest aufnehmen:** Touch-Eingabe sowie Fn/Escape jeweils vor dem Ruhezustand, direkt nach dem Aufwachen ohne BarX-Neustart und anschließend nach einem BarX-Neustart prüfen. Dieselbe Folge mehrmals durchführen und Abweichungen dokumentieren. So lassen sich Installationsfehler von Problemen bei der Wiederherstellung unterscheiden.
-- [ ] **Schlüsselwarnung vor der Eingabe platzieren:** Den Hinweis auf die Klartextspeicherung in V3 direkt neben der optionalen Claude-Einrichtung und vor dem Eintragen des API-Schlüssels anzeigen. Für V4 den Hinweis an den tatsächlich implementierten DPAPI-Schutz einschließlich Umgang mit vorhandenen Klartextdateien und Sicherungen anpassen.
-
-**Diese Korrekturen sind geplant und in der veröffentlichten Beta V3 noch nicht enthalten.**
-
-### Planned for Beta V4 (English)
-
-- **API key stored in plaintext:** V3 stores the Anthropic API key without encryption in `%AppData%\BarX\settings.json`. Protected storage using Windows DPAPI is planned for V4. Until then, do not share the settings file or its backups.
-- **Outdated text in preview images:** Some promotional images still say that AI Text replaces selected text directly. That wording has been outdated since V2.1: the result is held ready until you choose Paste; Copy and Discard are also available. Updating the promotional text and affected images is planned for V4.
+- [x] **Schlüsselschutz vor der Eingabe erklären:** V4-Eingabedialog und Claude-Anleitung beschreiben DPAPI, Kontobindung und die Migration vorhandener Klartext-Schlüssel sowie Sicherungen.
 
 ### Test reporting and setup (community feedback)
 
 - [ ] **Separate T1 and T2 results:** Group test reports by hardware generation and record the Mac model identifier, Windows version/build, BarX version and driver path. Successful T2 tests do not establish T1 compatibility.
 - [ ] **Add a repeatable sleep/wake test:** Check touch input and Fn/Escape before sleep, immediately after wake without restarting BarX, and again after restarting BarX. Repeat the same sequence and record failures. This helps distinguish installation failures from recovery problems.
-- [ ] **Show the key warning before entry:** Put the V3 plaintext-storage warning directly beside the optional Claude setup, before users enter an API key. For V4, align the notice with the implemented DPAPI protection, including the handling of existing plaintext files and backups.
-
-**These fixes are planned and are not included in the published Beta V3.**
+- [x] **Explain key protection before entry:** The V4 input dialog and Claude guide describe DPAPI, account binding and migration of existing plaintext keys and backups.
 
 ## Stand Beta V3 (Robustheit + Deutsch/Englisch)
 - **Installer meldet Fehler ehrlich:** Exitcodes von `bcdedit` und `pnputil` sowie die Treiber-Zuweisung werden geprüft. Eigene Codes (10 Testmodus, 11 Treiberspeicher, 12 Zuweisung, 13 Entpacken, 14 Entfernen), Klartext in `C:\ProgramData\BarX\letzter-fehler.txt`; Assistent und Menü zeigen die Meldung und bieten „Erneut versuchen“ an.
@@ -57,7 +48,9 @@ _Stand: 09.11.2026 · Version: **Beta V3** (0.9.3)_
 
 ## Offene Punkte
 - [x] DE/EN-Sprache (Beta V3).
-- [ ] V3 auf dem MacBook testen (Einrichtung, Sprache umschalten, KI-Einfügen).
+- [x] 24 EU-Sprachen und DPAPI-Schlüsselschutz (Beta V4).
+- [ ] Neue Übersetzungen von Muttersprachlern prüfen lassen.
+- [ ] V4 auf dem MacBook testen (Einrichtung, Sprache umschalten, KI-Einfügen).
 - [ ] T1-Macs testen.
 - [ ] Mac-Ideen: App-spezifische Leisten, Control Strip mit Slidern, QuickType-Vorschläge, Dock („Pock“), Touch-Bar-Editor, Screenshot der Leiste, Zoom, Widgets.
 - [ ] Bunte Emojis (Direct2D/DirectWrite nötig).

@@ -1,11 +1,11 @@
-# BarX — Beta V3
-**Garage Lab AI · Touch Bar unter Windows / Boot Camp · Version 0.9.3**
+# BarX — Beta V4
+**Garage Lab AI · Touch Bar unter Windows / Boot Camp · Version 0.9.4**
 
-**Deutsch** · [English](README.md) · [Beta V3 herunterladen](https://github.com/Dirtyx686/BarX/releases/tag/v0.9.3-beta)
+**Deutsch** · [English](README.md) · [Beta V4 herunterladen](https://github.com/Dirtyx686/BarX/releases/tag/v0.9.4-beta)
 
 ![BarX-Übersicht — erzeugtes Demo-Mockup](docs/images/cover.png)
 
-BarX macht die Touch Bar eines Intel-MacBook Pro unter Windows zum konfigurierbaren Bildschirm mit Touch: **29 Modi in sechs Profilen** für Studium, Business, Office, kreative Arbeit und Fun. Die Oberfläche unterstützt Deutsch und Englisch.
+BarX macht die Touch Bar eines Intel-MacBook Pro unter Windows zum konfigurierbaren Bildschirm mit Touch: **29 Modi in sechs Profilen** für Studium, Business, Office, kreative Arbeit und Fun. Die Oberfläche unterstützt alle 24 Amtssprachen der EU; Anleitungen und Vorschauen gibt es auf Deutsch und Englisch.
 
 ## Beta / Haftungsausschluss
 
@@ -21,35 +21,25 @@ Auf T2-MacBooks benötigt der mitgelieferte Treiber den Windows-Testmodus und de
 - Fokus-Timer, Karteikarten, Abgaben, Tages-Zeitstrahl und Projekt-Zeiterfassung.
 - Feuerwerk, Haustier, Ribbon-Synth, Ambilight und Musik-Visualizer.
 - Wetter, Kurs-Ticker, Soundboard und kleine Spiele.
-- Optionale Claude-Textaktionen mit eigenem Anthropic-API-Schlüssel. Markierter Text wird an Anthropic gesendet; Ergebnisse werden erst nach einer Aktion eingefügt oder kopiert. API-Nutzung kann Kosten verursachen. Der Schlüssel liegt in der lokalen Einstellungsdatei.
+- Optionale Claude-Textaktionen mit eigenem Anthropic-API-Schlüssel. Markierter Text wird an Anthropic gesendet; Ergebnisse werden erst nach einer Aktion eingefügt oder kopiert. API-Nutzung kann Kosten verursachen. Der Schlüssel wird mit Windows DPAPI verschlüsselt gespeichert.
 
 
 ## KI-Text einrichten (Claude)
 
-Der Reiter **KI-Text** ist bereits eingebaut und in den Profilen **Marketing & Kreativ**, **Studium**, **Business**, **Office** und **Alles** verfügbar. Für die Nutzung brauchst du einen eigenen Anthropic-API-Schlüssel und verfügbares API-Guthaben.
+Der Modus **KI-Text** ist in **Marketing & Kreativ**, **Studium**, **Business**, **Office** und **Alles** verfügbar. Er benötigt einen eigenen Anthropic-API-Schlüssel; die API-Nutzung kann Kosten verursachen.
 
-1. Bei der [Claude Console](https://console.anthropic.com/) anmelden und unter **API Keys** einen Schlüssel erstellen. In der Abrechnung verfügbares Guthaben prüfen und bei Bedarf aufladen. Die API wird getrennt vom Claude-Chat-Abo abgerechnet; bestimmte Tarife können anrechenbare API-Guthaben enthalten. Siehe [Anthropics Abrechnungshinweise](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage).
-2. In BarX per Rechtsklick auf das Symbol **Einstellungen bearbeiten** öffnen. In der vorhandenen `settings.json` diese Felder bearbeiten; die übrigen Einstellungen beibehalten:
+1. In der [Claude Console](https://console.anthropic.com/) einen API-Schlüssel erstellen.
+2. Rechtsklick auf das BarX-Symbol → **KI-Schlüssel (API-Key) eingeben …**, Schlüssel eintragen und **Speichern** wählen. BarX verschlüsselt ihn mit Windows DPAPI für dein Windows-Konto auf diesem PC.
+3. Text in einer Anwendung markieren, **KI-Text** öffnen und eine Aktion wie Kürzen, Korrigieren oder Übersetzen wählen.
+4. Ergebnis prüfen und **Einfügen**, **Kopieren** oder **Verwerfen** wählen. Nach einem Fensterwechsel vor dem Einfügen das Ziel prüfen.
 
-   ```json
-   "AnthropicKey": "sk-ant-DEIN-SCHLUESSEL",
-   "AiModel": "claude-haiku-5-5"
-   ```
+**Datenschutz:** Markierter Text wird zur Verarbeitung an Anthropic gesendet. Der Schlüssel steht verschlüsselt als `dpapi:…` in `%AppData%\BarX\settings.json`. Vorhandene Klartext-Schlüssel werden beim Start umgewandelt und aus Sicherungen sowie älteren Einstellungskopien entfernt. Einstellungen und Sicherungen nicht weitergeben. Nach einem PC- oder Kontowechsel den Schlüssel erneut eingeben. Ohne Schlüssel bleiben die übrigen 28 Modi verfügbar. Eine KI-Aktion öffnet den Schlüsseldialog; beim Abbrechen wird keine Anfrage an Anthropic gesendet.
 
-   Das ist ein Ausschnitt, keine vollständige Einstellungsdatei. Auf die Kommas zwischen den vorhandenen Feldern achten.
-3. Datei speichern, danach Rechtsklick → **Einstellungen neu laden**.
-4. Text in einer Anwendung markieren, **KI-Text** wählen und eine Aktion antippen, etwa Kürzen, Korrigieren oder Übersetzen. Das Ergebnis wird bereitgehalten: **Einfügen**, **Kopieren** oder **Verwerfen** wählen. Beim Fensterwechsel vor dem Einfügen das richtige Ziel prüfen.
+## Neu in Beta V4
 
-**Kosten:** Die API wird nach verarbeiteten Eingabe- und Ausgabetokens berechnet; es gibt keinen festen Preis pro Text. Das voreingestellte Modell ist `claude-haiku-5-5`. Aktuelle Preise: [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
-
-**Datenschutz:** Der markierte Text wird zur Verarbeitung an Anthropic gesendet. Der API-Schlüssel wird lokal in `%AppData%\BarX\settings.json` gespeichert. Schlüssel weder auf GitHub noch in Screenshots oder Fehlerberichten teilen. Die übrigen BarX-Modi benötigen keinen Anthropic-Schlüssel.
-
-## Bekannte Punkte in V3 – für V4 vorgesehen
-
-- **API-Schlüssel im Klartext:** In V3 liegt der Anthropic-API-Schlüssel unverschlüsselt in `%AppData%\BarX\settings.json`. Für V4 ist die geschützte Speicherung über Windows DPAPI vorgesehen. Bis dahin die Einstellungsdatei und ihre Sicherungskopien nicht weitergeben.
-- **Veralteter Text in den Vorstellungsbildern:** Der Fototext sagt teilweise noch „Ersetzt den markierten Text direkt“. Das ist seit V2.1 veraltet: Das Ergebnis wird zunächst bereitgehalten und erst nach „Einfügen“ übernommen; alternativ sind „Kopieren“ und „Verwerfen“ möglich. Die Korrektur des Fototextes und der betroffenen Bilder ist für V4 vorgesehen.
-
-**Diese Korrekturen sind geplant und in der veröffentlichten Beta V3 noch nicht enthalten.**
+- Alle 24 Amtssprachen der EU; die Oberfläche folgt Windows und lässt sich im Sprachmenü umstellen. Die neuen Übersetzungen sind noch nicht von Muttersprachlern geprüft; einzelne seltene Texte erscheinen auf Englisch.
+- Anthropic-API-Schlüssel werden mit Windows DPAPI verschlüsselt. Ein eigener Eingabedialog ersetzt die manuelle Schlüsseleingabe; vorhandene Klartext-Schlüssel und Einstellungssicherungen werden umgestellt.
+- Korrigierter KI-Fototext: Ergebnisse erst prüfen, dann Einfügen, Kopieren oder Verwerfen wählen.
 
 ## Vorschau
 
@@ -58,16 +48,21 @@ Die Bilder sind **erzeugte Demo-Mockups mit Beispieldaten**, keine Fotos eines H
 ![Farbpipette](docs/images/color-picker.png)
 ![Touch-Bar-Haustier](docs/images/pet.png)
 ![Präsentationssteuerung](docs/images/presentation.png)
+![24 Sprachen](docs/images/v4-languages.png)
+![Verschlüsselter API-Schlüssel](docs/images/v4-api-key.png)
+![KI-Ergebnisaktionen](docs/images/ai-text.png)
 
 ## Teststand
 
-Laut Entwickler läuft BarX auf einem **MacBookPro15,1**. Bei Vorbereitung dieser Veröffentlichung lief der Praxistest bereits ungefähr **zwei Stunden**. Das ist ein vom Entwickler gemeldeter Funktionstest und keine vollständige Prüfung jedes Modus.
+Ein früherer Entwicklertest meldete BarX auf einem **MacBookPro15,1**. Bei Vorbereitung von Beta V3 lief der Praxistest bereits ungefähr **zwei Stunden**. Das ist ein vom Entwickler gemeldeter Funktionstest und keine vollständige Prüfung jedes Modus.
+
+Beta V4 wurde unter Windows neu gebaut. Die eingebetteten Treiber-Prüfsummen, alle 22 zusätzlichen Sprachpakete (je 386 Einträge) und ein DPAPI-Ver- und Entschlüsselungstest wurden erfolgreich geprüft. Hardwareinstallation und Standby-/Aufwachverhalten wurden für dieses Update nicht erneut getestet.
 
 T1-Macs (2016/2017) und deren Einrichtung über WinUSB sind **ungetestet**. Geräteerkennung allein bestätigt keine Kompatibilität. Der Benachrichtigungs-Ticker ist experimentell.
 
 ## Installation
 
-1. `BarX-Beta-V3-Setup.exe` aus der Veröffentlichung herunterladen.
+1. `BarX-Beta-V4-Setup.exe` aus der Veröffentlichung herunterladen.
 2. Starten, **Alles einrichten** wählen und die nötige Administrator-Abfrage bestätigen.
 3. Checkliste befolgen und bei Aufforderung neu starten. Bei T2 die Hinweise zu Secure Boot und Testmodus beachten.
 4. Profil wählen. Das Symbol im Infobereich bietet Vorschau, Einstellungen, Sprache und Treiberoptionen.

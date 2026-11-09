@@ -1,4 +1,4 @@
-# BarX Beta V3 – deine Touch Bar unter Windows
+# BarX Beta V4 – deine Touch Bar unter Windows
 
 BarX macht die Touch Bar deines MacBook Pro (2018, T2) unter Windows zu einem eigenen kleinen Bildschirm mit Touch – mit 29 Modi für Studium, Business, Office, Marketing und Fun.
 
@@ -11,6 +11,11 @@ BarX macht die Touch Bar deines MacBook Pro (2018, T2) unter Windows zu einem ei
 
 Außerdem: **esc lange drücken** zeigt F1–F12; Menüpunkt **„Touch-Bar-Treiber neu zuweisen …“**, falls die Leiste schwarz bleibt.
 
+## Neu in Beta V4: 24 Sprachen und geschützter KI-Schlüssel
+- **Alle 24 Amtssprachen der EU:** Bulgarisch, Dänisch, Deutsch, Englisch, Estnisch, Finnisch, Französisch, Griechisch, Irisch, Italienisch, Kroatisch, Lettisch, Litauisch, Maltesisch, Niederländisch, Polnisch, Portugiesisch, Rumänisch, Schwedisch, Slowakisch, Slowenisch, Spanisch, Tschechisch, Ungarisch. BarX startet in der Sprache von Windows (sonst Englisch); umschalten über Rechtsklick → **Sprache / Language**.
+- **KI-Schlüssel verschlüsselt:** Der Anthropic-API-Schlüssel wird mit Windows DPAPI verschlüsselt gespeichert – nur dein Windows-Konto kann ihn lesen. Eingabe über Rechtsklick → **KI-Schlüssel (API-Key) eingeben …**. Ein früher von Hand eingetragener Klartext-Schlüssel wird beim Start automatisch umgewandelt und auch aus `settings.json.bak` und älteren Kopien entfernt.
+- **Vorstellungsbilder korrigiert:** Das Bild zur KI-Leiste beschreibt jetzt richtig, dass das Ergebnis erst bereitgehalten und nach **Einfügen** übernommen wird (oder **Kopieren** / **Verwerfen**).
+
 ## Neu in Beta V3: zuverlässiger und zweisprachig
 - **Klare Fehlermeldungen beim Einrichten:** Klappt ein Schritt nicht (Testmodus, Treiber, Zuweisung), meldet BarX den Grund und bietet **„Erneut versuchen“** an – statt fälschlich „Fertig“ zu zeigen. Details: `C:\ProgramData\BarX\installation.log` und `letzter-fehler.txt`.
 - **KI-Text:** Das Ergebnis wird nicht mehr automatisch eingefügt, sondern bereitgehalten – **Einfügen**, **Kopieren** oder **Verwerfen** tippen. Ist inzwischen ein anderes Fenster aktiv, wird der Knopf orange.
@@ -20,7 +25,7 @@ Außerdem: **esc lange drücken** zeigt F1–F12; Menüpunkt **„Touch-Bar-Trei
 
 ## Installation – ein Klick
 
-1. **`BarX-Beta-V3-Setup.exe`** doppelklicken. (Eine eventuell laufende alte BarX wird automatisch beendet.)
+1. **`BarX-Beta-V4-Setup.exe`** doppelklicken. (Eine eventuell laufende alte BarX wird automatisch beendet.)
 2. Im Fenster **„Touch Bar einrichten“** auf **„Alles einrichten“** klicken und die Administrator-Abfrage bestätigen. BarX
    - installiert sich nach `%LocalAppData%\Programs\BarX` (Startmenü, Desktop-Verknüpfung, startet mit Windows),
    - schaltet bei Bedarf den Windows-Testmodus ein,
@@ -91,38 +96,31 @@ Protokoll der Treiber-Installation: `C:\ProgramData\BarX\installation.log`
 - **Kurse** – Krypto (CoinGecko) und Aktien (Yahoo) als Laufband (`Crypto`, `Stocks`).
 - **Abstimmung** – Stimmen zählen per Tipp (lange = −1).
 - **Ruhe-Ampel** – grün/gelb/rot für Leute neben dir; automatisch rot im Call, gelb im Fokus.
-- **KI-Text** – Text markieren → Kürzen, Freundlicher, Formeller, Korrigieren, Übersetzen, Stichpunkte, Hashtags, Social Post. Das Ergebnis wird bereitgehalten: **Einfügen**, **Kopieren** oder **Verwerfen** tippen. Braucht einen API-Key von console.anthropic.com in `AnthropicKey`.
+- **KI-Text** – Text markieren → Kürzen, Freundlicher, Formeller, Korrigieren, Übersetzen, Stichpunkte, Hashtags, Social Post. Das Ergebnis wird bereitgehalten: **Einfügen**, **Kopieren** oder **Verwerfen** tippen. Braucht einen API-Key von console.anthropic.com – eingeben über Rechtsklick → **KI-Schlüssel (API-Key) eingeben …** (wird verschlüsselt gespeichert).
 
 ## Einstellungen
-Rechtsklick aufs Symbol → **Einstellungen bearbeiten** öffnet `%AppData%\BarX\settings.json` im Editor. Nach dem Speichern → **Einstellungen neu laden**. Dort stehen u. a. Textbausteine, Zitate, Symbole, Marker, Termine, Deadlines, Projekte, Kurse, Ort, Ablenkungs-Seiten, Pomodoro-Längen und der KI-Schlüssel.
+Rechtsklick aufs Symbol → **Einstellungen bearbeiten** öffnet `%AppData%\BarX\settings.json` im Editor. Nach dem Speichern → **Einstellungen neu laden**. Dort stehen u. a. Textbausteine, Zitate, Symbole, Marker, Termine, Deadlines, Projekte, Kurse, Ort, Ablenkungs-Seiten, Pomodoro-Längen, `Language` (Sprachcode wie `"de"`, `"fr"`, `"pl"` oder leer = Windows-Sprache) und der KI-Schlüssel – dieser nur verschlüsselt (`"dpapi:…"`); am bequemsten über das Menü eingeben.
 
 Fehlerprotokoll: `%AppData%\BarX\fehler.log`.
 
 
-## Bekannt in Beta V3
+## Bekannt in Beta V4
 - Auf **T2-Macs** ist der freie Touch-Bar-Treiber nicht von Microsoft signiert → **Windows-Testmodus** ist nötig (Wasserzeichen unten rechts; manche Spiele mit Anti-Cheat starten nicht). Ein Weg über den Microsoft-Standardtreiber WinUSB wurde getestet, funktioniert auf T2-Macs unter Boot Camp aber nicht. Ohne Testmodus geht es nur mit einer offiziellen Microsoft-Signatur des Treibers.
 - Bunte Emojis werden auf der Leiste einfarbig angezeigt (eingefügt werden sie bunt).
 - Nach einem Kaltstart bleibt die Leiste selten schwarz → einmal neu starten.
 - Benachrichtigungs-Ticker ist experimentell.
 - T1-Unterstützung (2016/17) ist ungetestet.
-
+- Die Übersetzungen außer Deutsch und Englisch sind neu und noch nicht von Muttersprachlern geprüft – Rückmeldungen willkommen. Einzelne seltene Texte erscheinen dort noch auf Englisch.
+- Vorstellungsbilder und Anleitungen gibt es auf Deutsch und Englisch.
+- Der verschlüsselte KI-Schlüssel gilt nur für dein Windows-Konto auf diesem PC; nach einem Umzug einfach neu eingeben.
 
 ## KI-Text einrichten (Claude)
 
-Der Reiter **KI-Text** ist bereits eingebaut und in den Profilen **Marketing & Kreativ**, **Studium**, **Business**, **Office** und **Alles** verfügbar. Für die Nutzung brauchst du einen eigenen Anthropic-API-Schlüssel und verfügbares API-Guthaben.
+Der Modus **KI-Text** ist in **Marketing & Kreativ**, **Studium**, **Business**, **Office** und **Alles** verfügbar. Er benötigt einen eigenen Anthropic-API-Schlüssel; die API-Nutzung kann Kosten verursachen.
 
-1. Bei der [Claude Console](https://console.anthropic.com/) anmelden und unter **API Keys** einen Schlüssel erstellen. In der Abrechnung verfügbares Guthaben prüfen und bei Bedarf aufladen. Die API wird getrennt vom Claude-Chat-Abo abgerechnet; bestimmte Tarife können anrechenbare API-Guthaben enthalten. Siehe [Anthropics Abrechnungshinweise](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage).
-2. In BarX per Rechtsklick auf das Symbol **Einstellungen bearbeiten** öffnen. In der vorhandenen `settings.json` diese Felder bearbeiten; die übrigen Einstellungen beibehalten:
+1. In der [Claude Console](https://console.anthropic.com/) einen API-Schlüssel erstellen.
+2. Rechtsklick auf das BarX-Symbol → **KI-Schlüssel (API-Key) eingeben …**, Schlüssel eintragen und **Speichern** wählen. BarX verschlüsselt ihn mit Windows DPAPI für dein Windows-Konto auf diesem PC.
+3. Text in einer Anwendung markieren, **KI-Text** öffnen und eine Aktion wie Kürzen, Korrigieren oder Übersetzen wählen.
+4. Ergebnis prüfen und **Einfügen**, **Kopieren** oder **Verwerfen** wählen. Nach einem Fensterwechsel vor dem Einfügen das Ziel prüfen.
 
-   ```json
-   "AnthropicKey": "sk-ant-DEIN-SCHLUESSEL",
-   "AiModel": "claude-haiku-5-5"
-   ```
-
-   Das ist ein Ausschnitt, keine vollständige Einstellungsdatei. Auf die Kommas zwischen den vorhandenen Feldern achten.
-3. Datei speichern, danach Rechtsklick → **Einstellungen neu laden**.
-4. Text in einer Anwendung markieren, **KI-Text** wählen und eine Aktion antippen, etwa Kürzen, Korrigieren oder Übersetzen. Das Ergebnis wird bereitgehalten: **Einfügen**, **Kopieren** oder **Verwerfen** wählen. Beim Fensterwechsel vor dem Einfügen das richtige Ziel prüfen.
-
-**Kosten:** Die API wird nach verarbeiteten Eingabe- und Ausgabetokens berechnet; es gibt keinen festen Preis pro Text. Das voreingestellte Modell ist `claude-haiku-5-5`. Aktuelle Preise: [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
-
-**Datenschutz:** Der markierte Text wird zur Verarbeitung an Anthropic gesendet. Der API-Schlüssel wird lokal in `%AppData%\\BarX\\settings.json` gespeichert. Schlüssel weder auf GitHub noch in Screenshots oder Fehlerberichten teilen. Die übrigen BarX-Modi benötigen keinen Anthropic-Schlüssel.
+**Datenschutz:** Markierter Text wird zur Verarbeitung an Anthropic gesendet. Der Schlüssel steht verschlüsselt als `dpapi:…` in `%AppData%\BarX\settings.json`. Vorhandene Klartext-Schlüssel werden beim Start umgewandelt und aus Sicherungen sowie älteren Einstellungskopien entfernt. Einstellungen und Sicherungen nicht weitergeben. Nach einem PC- oder Kontowechsel den Schlüssel erneut eingeben. Ohne Schlüssel bleiben die übrigen 28 Modi verfügbar. Eine KI-Aktion öffnet den Schlüsseldialog; beim Abbrechen wird keine Anfrage an Anthropic gesendet.
