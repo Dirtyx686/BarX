@@ -2,6 +2,20 @@
 
 _Stand: 09.11.2026 · Version: **Beta V3** (0.9.3)_
 
+## Für Beta V4 geplant
+
+- **API-Schlüssel im Klartext:** In V3 liegt der Anthropic-API-Schlüssel unverschlüsselt in `%AppData%\BarX\settings.json`. Für V4 ist die geschützte Speicherung über Windows DPAPI vorgesehen. Bis dahin die Einstellungsdatei und ihre Sicherungskopien nicht weitergeben.
+- **Veralteter Text in den Vorstellungsbildern:** Der Fototext sagt teilweise noch „Ersetzt den markierten Text direkt“. Das ist seit V2.1 veraltet: Das Ergebnis wird zunächst bereitgehalten und erst nach „Einfügen“ übernommen; alternativ sind „Kopieren“ und „Verwerfen“ möglich. Die Korrektur des Fototextes und der betroffenen Bilder ist für V4 vorgesehen.
+
+**Diese Korrekturen sind geplant und in der veröffentlichten Beta V3 noch nicht enthalten.**
+
+### Planned for Beta V4 (English)
+
+- **API key stored in plaintext:** V3 stores the Anthropic API key without encryption in `%AppData%\BarX\settings.json`. Protected storage using Windows DPAPI is planned for V4. Until then, do not share the settings file or its backups.
+- **Outdated text in preview images:** Some promotional images still say that AI Text replaces selected text directly. That wording has been outdated since V2.1: the result is held ready until you choose Paste; Copy and Discard are also available. Updating the promotional text and affected images is planned for V4.
+
+**These fixes are planned and are not included in the published Beta V3.**
+
 ## Stand Beta V3 (Robustheit + Deutsch/Englisch)
 - **Installer meldet Fehler ehrlich:** Exitcodes von `bcdedit` und `pnputil` sowie die Treiber-Zuweisung werden geprüft. Eigene Codes (10 Testmodus, 11 Treiberspeicher, 12 Zuweisung, 13 Entpacken, 14 Entfernen), Klartext in `C:\ProgramData\BarX\letzter-fehler.txt`; Assistent und Menü zeigen die Meldung und bieten „Erneut versuchen“ an.
 - **KI-Leiste fügt nicht mehr automatisch ein:** Ergebnis wird bereitgehalten (Vorschau + Einfügen / Kopieren / Verwerfen); Warnung, wenn inzwischen ein anderes Fenster aktiv ist.
