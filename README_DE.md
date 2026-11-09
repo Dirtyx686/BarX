@@ -23,6 +23,27 @@ Auf T2-MacBooks benötigt der mitgelieferte Treiber den Windows-Testmodus und de
 - Wetter, Kurs-Ticker, Soundboard und kleine Spiele.
 - Optionale Claude-Textaktionen mit eigenem Anthropic-API-Schlüssel. Markierter Text wird an Anthropic gesendet; Ergebnisse werden erst nach einer Aktion eingefügt oder kopiert. API-Nutzung kann Kosten verursachen. Der Schlüssel liegt in der lokalen Einstellungsdatei.
 
+
+## KI-Text einrichten (Claude)
+
+Der Reiter **KI-Text** ist bereits eingebaut und in den Profilen **Marketing & Kreativ**, **Studium**, **Business**, **Office** und **Alles** verfügbar. Für die Nutzung brauchst du einen eigenen Anthropic-API-Schlüssel und verfügbares API-Guthaben.
+
+1. Bei der [Claude Console](https://console.anthropic.com/) anmelden und unter **API Keys** einen Schlüssel erstellen. In der Abrechnung verfügbares Guthaben prüfen und bei Bedarf aufladen. Die API wird getrennt vom Claude-Chat-Abo abgerechnet; bestimmte Tarife können anrechenbare API-Guthaben enthalten. Siehe [Anthropics Abrechnungshinweise](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage).
+2. In BarX per Rechtsklick auf das Symbol **Einstellungen bearbeiten** öffnen. In der vorhandenen `settings.json` diese Felder bearbeiten; die übrigen Einstellungen beibehalten:
+
+   ```json
+   "AnthropicKey": "sk-ant-DEIN-SCHLUESSEL",
+   "AiModel": "claude-haiku-5-5"
+   ```
+
+   Das ist ein Ausschnitt, keine vollständige Einstellungsdatei. Auf die Kommas zwischen den vorhandenen Feldern achten.
+3. Datei speichern, danach Rechtsklick → **Einstellungen neu laden**.
+4. Text in einer Anwendung markieren, **KI-Text** wählen und eine Aktion antippen, etwa Kürzen, Korrigieren oder Übersetzen. Das Ergebnis wird bereitgehalten: **Einfügen**, **Kopieren** oder **Verwerfen** wählen. Beim Fensterwechsel vor dem Einfügen das richtige Ziel prüfen.
+
+**Kosten:** Die API wird nach verarbeiteten Eingabe- und Ausgabetokens berechnet; es gibt keinen festen Preis pro Text. Das voreingestellte Modell ist `claude-haiku-5-5`. Aktuelle Preise: [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
+
+**Datenschutz:** Der markierte Text wird zur Verarbeitung an Anthropic gesendet. Der API-Schlüssel wird lokal in `%AppData%\\BarX\\settings.json` gespeichert. Schlüssel weder auf GitHub noch in Screenshots oder Fehlerberichten teilen. Die übrigen BarX-Modi benötigen keinen Anthropic-Schlüssel.
+
 ## Vorschau
 
 Die Bilder sind **erzeugte Demo-Mockups mit Beispieldaten**, keine Fotos eines Hardwaretests.
