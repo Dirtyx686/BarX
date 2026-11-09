@@ -23,6 +23,27 @@ On T2 MacBooks the bundled driver requires Windows test-signing mode and Secure 
 - Weather, market ticker, soundboard and small games.
 - Optional Claude text actions with your own Anthropic API key. Selected text is sent to Anthropic; results wait for an explicit insert/copy action. API usage may incur charges. The key is stored in the local settings file.
 
+
+## Set up AI Text (Claude)
+
+The **AI Text** mode is already built in and available in the **Marketing & Creative**, **Study**, **Business**, **Office** and **All** profiles. It requires your own Anthropic API key and an available API credit balance.
+
+1. Sign in to the [Claude Console](https://console.anthropic.com/) and create a key under **API Keys**. Check your available credits under billing and top up if needed. API billing is separate from a Claude chat subscription; some plans may include claimable API credits. See [Anthropic's billing guide](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage).
+2. Right-click the BarX tray icon → **Edit settings**. Edit these fields in the existing `settings.json`, keeping the other settings:
+
+   ```json
+   "AnthropicKey": "sk-ant-YOUR-KEY",
+   "AiModel": "claude-haiku-5-5"
+   ```
+
+   This is a fragment, not a complete settings file. Keep valid commas between the existing fields.
+3. Save the file, then right-click → **Reload settings**.
+4. Select text in an application, open **AI Text** and tap an action such as Shorten, Correct or Translate. The result waits for you to choose **Paste**, **Copy** or **Discard**. If you switched windows, check the destination before pasting.
+
+**Cost:** API charges depend on input and output tokens; there is no fixed price per text. The default model is `claude-haiku-5-5`. See [current Claude Haiku 5.5 pricing](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
+
+**Privacy:** Selected text is sent to Anthropic for processing. The API key is stored locally in `%AppData%\\BarX\\settings.json`. Do not share the key on GitHub, in screenshots or in bug reports. Other BarX modes do not require an Anthropic key.
+
 ## Preview
 
 These images are **generated demo mockups with sample data**, not photographs of a hardware test.
