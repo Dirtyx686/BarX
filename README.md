@@ -62,8 +62,8 @@ T1 (2016/2017) support and its WinUSB-first setup path remain **untested**. Do n
 
 ## Install
 
-1. Download `BarX-Beta-V4-Setup.exe` from the release below.
-2. Start it and choose **Set everything up**; approve the administrator prompt when required.
+1. Download [BarX-Beta-V4-Setup.exe](https://github.com/Dirtyx686/BarX/releases/download/v0.9.4-beta/BarX-Beta-V4-Setup.exe).
+2. Start it and choose **Set up everything**; approve the administrator prompt when required.
 3. Follow the setup checklist and restart when prompted. For T2 devices, follow the guide for Secure Boot and test-signing requirements.
 4. Choose a profile. Right-click the tray icon for preview, settings, language and driver options.
 
@@ -71,13 +71,15 @@ Keep an alternative way to enter Escape available while testing. Long-press Esca
 
 [English guide](GUIDE_EN.md) · [German guide](ANLEITUNG.md) · [Roadmap](ROADMAP.md)
 
-## V3 improvements
+## V4 improvements
 
+- Interface in all 24 official EU languages, following Windows or selectable from the language menu.
+- Anthropic API keys encrypted with Windows DPAPI, with a dedicated input dialog and migration of existing plaintext keys and backups.
+- Updated AI previews showing the explicit Paste, Copy and Discard actions.
 - Setup checks installation errors and offers a retry.
-- AI results no longer insert automatically.
 - Settings use a backup and atomic replacement; save failures are shown in the UI.
-- Standby events run through the main task queue; time tracking no longer depends on rendering speed.
-- German and English interface and guides.
+- Standby events run through the main task queue; time tracking does not depend on rendering speed.
+- German and English guides and demo previews.
 
 ## Distribution and credits
 

@@ -62,7 +62,7 @@ T1-Macs (2016/2017) und deren Einrichtung über WinUSB sind **ungetestet**. Ger�
 
 ## Installation
 
-1. `BarX-Beta-V4-Setup.exe` aus der Veröffentlichung herunterladen.
+1. [BarX-Beta-V4-Setup.exe](https://github.com/Dirtyx686/BarX/releases/download/v0.9.4-beta/BarX-Beta-V4-Setup.exe) herunterladen.
 2. Starten, **Alles einrichten** wählen und die nötige Administrator-Abfrage bestätigen.
 3. Checkliste befolgen und bei Aufforderung neu starten. Bei T2 die Hinweise zu Secure Boot und Testmodus beachten.
 4. Profil wählen. Das Symbol im Infobereich bietet Vorschau, Einstellungen, Sprache und Treiberoptionen.
@@ -71,13 +71,15 @@ Beim Testen eine alternative Escape-Eingabe bereithalten. Escape lange drücken 
 
 [Deutsche Anleitung](ANLEITUNG.md) · [English guide](GUIDE_EN.md) · [Roadmap](ROADMAP.md)
 
-## Verbesserungen in V3
+## Verbesserungen in V4
 
+- Oberfläche in allen 24 Amtssprachen der EU, passend zu Windows oder im Sprachmenü auswählbar.
+- Anthropic-API-Schlüssel mit Windows DPAPI verschlüsselt, mit eigenem Eingabedialog und Migration vorhandener Klartext-Schlüssel sowie Sicherungen.
+- Aktualisierte KI-Vorschauen mit den ausdrücklichen Aktionen Einfügen, Kopieren und Verwerfen.
 - Installer prüft Fehler und bietet Wiederholen an.
-- KI-Ergebnisse werden nicht mehr automatisch eingefügt.
 - Einstellungen mit Sicherung und atomarem Ersetzen; Speicherfehler werden angezeigt.
 - Standby-Ereignisse über die zentrale Warteschlange; Zeiterfassung unabhängig von der Bildwiederholung.
-- Deutsche und englische Oberfläche und Anleitungen.
+- Deutsche und englische Anleitungen und Demo-Vorschauen.
 
 ## Bereitstellung und Danksagung
 
