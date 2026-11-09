@@ -3,7 +3,7 @@
 
 [Deutsch](README_DE.md) · **English** · [Download Beta V3](https://github.com/Dirtyx686/BarX/releases/tag/v0.9.3-beta)
 
-![BarX overview — generated demonstration mockup](docs/images/cover.png)
+![BarX overview — generated demonstration mockup](docs/images/cover-en.png)
 
 BarX turns the Touch Bar of an Intel MacBook Pro running Windows into a configurable display with touch input: **29 modes across six profiles** for study, business, office, creative work and fun. The interface supports German and English.
 
@@ -27,9 +27,9 @@ On T2 MacBooks the bundled driver requires Windows test-signing mode and Secure 
 
 These images are **generated demo mockups with sample data**, not photographs of a hardware test.
 
-![Color picker](docs/images/color-picker.png)
-![Touch Bar pet](docs/images/pet.png)
-![Presentation controls](docs/images/presentation.png)
+![Color picker](docs/images/color-picker-en.png)
+![Touch Bar pet](docs/images/pet-en.png)
+![Presentation controls](docs/images/presentation-en.png)
 
 ## Tested hardware and current status
 

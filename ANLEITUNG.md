@@ -17,7 +17,6 @@ Außerdem: **esc lange drücken** zeigt F1–F12; Menüpunkt **„Touch-Bar-Trei
 - **Einstellungen sicher:** Vorige Version bleibt als `settings.json.bak`. Ist `settings.json` fehlerhaft, lädt BarX die Sicherung (oder Standardwerte) und überschreibt deine Datei **nicht** – eine Meldung zeigt die Fehlerstelle.
 - **Zeiterfassung genau:** misst mit der Systemuhr; Standby und Pausen über 10 Minuten werden nicht mitgezählt.
 - **Deutsch & Englisch:** BarX startet in der Sprache von Windows; umschalten über Rechtsklick → **Sprache / Language** (englische Anleitung: `GUIDE_EN.md`).
-- **Selbst bauen:** siehe `BUILD.md` (Windows: (nicht mitgeliefert), ohne Visual Studio).
 
 ## Installation – ein Klick
 

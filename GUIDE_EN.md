@@ -10,7 +10,6 @@ BarX starts in your Windows language (German or English). Switch any time: right
 - **Safe settings:** the previous version is kept as `settings.json.bak`. If `settings.json` is invalid, BarX loads the backup (or defaults) and does **not** overwrite your file – a message shows where the error is. If saving fails, you see a warning on the bar and in Windows.
 - **Accurate time tracking:** measured with the system clock; standby and gaps over 10 minutes are not counted.
 - **German & English** throughout the app, menus, setup and messages.
-- **Build it yourself:** see `https://github.com/Dirtyx686/BarX` (source code) (Windows: (nicht mitgeliefert), no Visual Studio needed).
 
 ## BarX detects your device
 | Device | What gets set up |
